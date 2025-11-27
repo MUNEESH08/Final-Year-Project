@@ -1,0 +1,225 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+    min-height: 100vh;
+    padding: 40px 20px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(16, 185, 129, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+h2 {
+    color: #f8fafc;
+    font-size: 2.8rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 48px;
+    letter-spacing: -0.5px;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 1;
+}
+
+.result-box {
+    background: rgba(30, 41, 59, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(148, 163, 184, 0.1);
+    border-radius: 24px;
+    padding: 48px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+    position: relative;
+    z-index: 1;
+}
+
+h3 {
+    color: #3b82f6;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 36px;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid rgba(59, 130, 246, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+h3:first-of-type {
+    margin-top: 0;
+}
+
+pre {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(148, 163, 184, 0.1);
+    padding: 24px;
+    border-radius: 12px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    color: #e2e8f0;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    font-family: 'SF Mono', 'Monaco', 'Cascadia Code', 'Roboto Mono', monospace;
+}
+
+audio {
+    width: 100%;
+    margin: 16px 0;
+    border-radius: 12px;
+    filter: brightness(1.1) contrast(1.1);
+}
+
+audio::-webkit-media-controls-panel {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(30, 41, 59, 0.9) 100%);
+    border-radius: 12px;
+}
+
+a {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    padding: 14px 32px;
+    border-radius: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    margin: 12px 8px 12px 0;
+    box-shadow: 0 4px 16px rgba(59, 130, 246, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+a:hover::before {
+    left: 100%;
+}
+
+a:hover {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.5);
+}
+
+a:active {
+    transform: translateY(-1px);
+}
+
+/* Section styling for audio sections */
+h3 + audio {
+    margin-top: 8px;
+}
+
+/* Alternating section colors */
+.result-box > h3:nth-of-type(odd) {
+    color: #3b82f6;
+}
+
+.result-box > h3:nth-of-type(even) {
+    color: #10b981;
+    border-bottom-color: rgba(16, 185, 129, 0.3);
+}
+
+/* Tamil section specific styling */
+h3:contains("Tamil") {
+    color: #a855f7;
+    border-bottom-color: rgba(168, 85, 247, 0.3);
+}
+
+/* Back button styling */
+.back-button {
+    background: linear-gradient(135deg, #64748b 0%, #475569 100%);
+    margin-top: 32px;
+    display: inline-block;
+}
+
+.back-button:hover {
+    background: linear-gradient(135deg, #475569 0%, #334155 100%);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 32px;
+    }
+    
+    .result-box {
+        padding: 32px 24px;
+        width: 95%;
+    }
+    
+    h3 {
+        font-size: 1.2rem;
+        margin-top: 24px;
+    }
+    
+    pre {
+        padding: 16px;
+        font-size: 0.85rem;
+    }
+    
+    a {
+        padding: 12px 24px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Success indicator animation */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.result-box {
+    animation: slideInUp 0.6s ease-out;
+}
+
+/* Glow effect on hover for audio controls */
+audio:hover {
+    filter: brightness(1.2) contrast(1.2);
+    transition: filter 0.3s ease;
+}
